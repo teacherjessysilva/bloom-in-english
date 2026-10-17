@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bloom in English — F1 Lesson</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Fraunces:wght@600;700&display=swap">
+<style>
+:root{--bg:#fdeef3;--card:#fff8fb;--ink:#1c2750;--muted:#5b6485;--pink:#f6bfd3;--pink2:#f9d6e3;--navy:#1c2750;--line:#f0c9d8;--ok:#1f8a5b;--bad:#c2410c;--on-navy:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121936;--card:#1a2350;--ink:#fbe9f0;--muted:#b7bedb;--pink:#f3a9c4;--pink2:#2a3566;--navy:#f6bfd3;--line:#333f78;--ok:#6fe0a8;--bad:#ffb08a;--on-navy:#1c2750}}
+:root[data-theme="dark"]{--bg:#121936;--card:#1a2350;--ink:#fbe9f0;--muted:#b7bedb;--pink:#f3a9c4;--pink2:#2a3566;--navy:#f6bfd3;--line:#333f78;--ok:#6fe0a8;--bad:#ffb08a;--on-navy:#1c2750}
+*{box-sizing:border-box}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Poppins,system-ui,sans-serif;line-height:1.55}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:20}
+.hero{text-align:center;padding:26px 16px 14px}
+.brand{font-family:Fraunces,Georgia,serif;font-size:clamp(1.8rem,6vw,2.6rem);margin:0;color:var(--ink)}
+.brand span{color:#e0679a}
+.by{margin:2px 0 0;color:var(--muted);font-size:.95rem}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;display:flex;gap:8px;overflow-x:auto;padding:10px 12px;background:var(--bg);border-bottom:1px solid var(--line)}
+nav a{flex:none;text-decoration:none;color:var(--ink);background:var(--pink2);padding:7px 14px;border-radius:999px;font-size:.85rem;font-weight:500}
+nav a:hover{background:var(--pink)}
+nav button{flex:none;margin-left:auto;font:inherit;font-size:.8rem;border:1px dashed var(--muted);background:transparent;color:var(--muted);border-radius:999px;padding:6px 12px;cursor:pointer}
+main{max-width:860px;margin:0 auto;padding:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px;margin-bottom:20px;box-shadow:0 6px 18px rgba(28,39,80,.07)}
+.tag{display:inline-block;background:var(--navy);color:var(--on-navy);font-weight:600;font-size:.75rem;letter-spacing:.06em;border-radius:999px;padding:3px 12px}
+h2{font-family:Fraunces,Georgia,serif;font-size:1.4rem;margin:8px 0 6px}
+.note{display:none;background:var(--pink2);border-left:4px solid var(--pink);border-radius:10px;padding:8px 12px;margin:8px 0;font-size:.85rem;color:var(--muted)}
+body.t .note{display:block}
+.row{padding:12px 0;border-top:1px dashed var(--line)}
+.row:first-of-type{border-top:0}
+.q{font-weight:600;margin-bottom:8px}
+select,textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:10px}
+textarea{min-height:64px;resize:vertical;margin-top:8px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:999px;padding:8px 16px;cursor:pointer;text-align:left}
+.opt[aria-pressed="true"]{background:var(--navy);color:var(--on-navy);border-color:var(--navy)}
+.opt.ok{background:var(--ok);border-color:var(--ok);color:#fff}
+.opt.bad{background:var(--bad);border-color:var(--bad);color:#fff}
+.btn{font:inherit;font-weight:600;background:var(--navy);color:var(--on-navy);border:0;border-radius:999px;padding:10px 22px;cursor:pointer;margin-top:12px}
+.btn.ghost{background:var(--pink2);color:var(--ink)}
+.res{margin-left:10px;font-weight:600}
+.ok-t{color:var(--ok)}.bad-t{color:var(--bad)}
+.blank{display:inline-block;min-width:3.2em;border-bottom:2px solid var(--navy)}
+.qlist{list-style:none;padding:0;margin:0;counter-reset:n}
+.qlist li{counter-increment:n;padding:12px 0 12px 46px;position:relative;border-top:1px dashed var(--line)}
+.qlist li:first-child{border:0}
+.qlist li::before{content:counter(n);position:absolute;left:0;top:10px;width:32px;height:32px;border-radius:50%;background:var(--pink);color:#1c2750;font-weight:700;display:grid;place-items:center}
+.profile{display:grid;gap:14px;background:linear-gradient(135deg,var(--pink2),var(--card));border:1px solid var(--line);border-radius:18px;padding:16px;margin:12px 0}
+.who h3{font-family:Fraunces,Georgia,serif;margin:0;font-size:1.5rem}
+.who small{color:var(--muted)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.fact{background:var(--card);border-radius:14px;padding:10px 12px;border:1px solid var(--line)}
+.fact b{display:block;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.rv{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.ans{flex-basis:100%;display:none;background:var(--navy);color:var(--on-navy);border-radius:12px;padding:10px 14px;font-weight:600}
+.ans.show{display:block}
+.rv button{font:inherit;font-size:.85rem;font-weight:600;background:var(--pink);color:#1c2750;border:0;border-radius:999px;padding:6px 16px;cursor:pointer}
+footer{text-align:center;color:var(--muted);font-size:.85rem;padding:8px 16px 28px}
+</style>
+</head>
+<body>
+<div class="hero">
+<h1 class="brand">Bloom <span>in</span> English 🌸</h1>
+<p class="by">with Teacher Jessy · F1 edition 🏎️</p>
+</div>
+<nav>
+<a href="#a1">B · Match</a><a href="#a2">C · Choose</a><a href="#a3">B · Figure out</a><a href="#a4">C · Predictions</a><a href="#a5">🎮 Main</a><a href="#a6">🧠 Final</a>
+<button id="tn">👩‍🏫 Teacher notes</button>
+</nav>
+<main>
+
+<section class="card" id="a1">
+<span class="tag">B</span>
+<h2>Match the expression to its meaning</h2>
+<div id="m"></div>
+<button class="btn" id="mc">Check answers</button><span class="res" id="mr"></span>
+</section>
+
+<section class="card" id="a2">
+<span class="tag">C</span>
+<h2>Choose your answer — and explain why</h2>
+<div class="note">Essa atividade já começa a fazer a Roniara produzir mais do que respostas curtas.</div>
+<div id="c"></div>
+<p class="note" style="display:block;background:transparent;border:0;padding:0">💬 Develop my answers: say <i>why</i> you chose it.</p>
+</section>
+
+<section class="card" id="a3">
+<span class="tag">B</span>
+<h2>Figure out or work out?</h2>
+<p style="margin:0;color:var(--muted)">Escolha a expressão que melhor completa cada frase.</p>
+<div id="f"></div>
+<button class="btn" id="fc">Check answers</button><span class="res" id="fr"></span>
+</section>
+
+<section class="card" id="a4">
+<span class="tag">C</span>
+<h2>Future predictions — F1 edition 🏁</h2>
+<div class="note">O objetivo é argumentar e especular.</div>
+<ol class="qlist">
+<li>What do you think Max Verstappen will do after Formula 1?</li>
+<li>Do you think some drivers will become team principals?</li>
+<li>What other careers could an F1 driver have?</li>
+<li>Do you think retired drivers miss racing?</li>
+<li>How do you think a driver’s life changes after retirement?</li>
+</ol>
+</section>
+
+<section class="card" id="a5">
+<span class="tag">5 · 🎮 MAIN ACTIVITY</span>
+<h2>The F1 Driver Profile</h2>
+<div class="note">Essa seria a atividade principal da aula. Ela combina preenchimento, interpretação e speaking. Explique que ela vai receber o perfil de um piloto fictício e terá que apresentá-lo como se estivesse comentando uma entrevista para um portal de esportes.</div>
+<div class="profile">
+<div class="who"><h3>Meet Alex Morgan</h3><small>Fictional Formula 1 driver</small></div>
+<div class="facts">
+<div class="fact"><b>Age</b>27</div>
+<div class="fact"><b>Career</b>9 years in Formula 1</div>
+<div class="fact"><b>Biggest change</b>more mature and disciplined</div>
+<div class="fact"><b>Main motivation</b>becoming a better driver</div>
+<div class="fact"><b>Biggest challenge</b>finding time for himself</div>
+<div class="fact"><b>Future concern</b>what to do after retirement</div>
+</div>
+</div>
+<p style="font-weight:600;margin:14px 0 0">Complete the profile using the information above.</p>
+<div id="p"></div>
+</section>
+
+<section class="card" id="a6">
+<span class="tag">6 · 🧠 FINAL CHALLENGE</span>
+<h2>Can you retrieve the expression?</h2>
+<div class="note">Uma rodada oral sem mostrar as respostas. Leia as definições e peça que ela encontre a expressão em inglês.</div>
+<div id="r"></div>
+</section>
+
+</main>
+<footer>Bloom in English with Teacher Jessy 🌸</footer>
+<script>
+function el(t,c,h){var e=document.createElement(t);if(c)e.className=c;if(h!=null)e.textContent=h;return e}
+document.getElementById("tn").onclick=function(){document.body.classList.toggle("t")};
+
+var meanings=["Uma motivação constante minha","Ocupa a maior parte da minha vida","A mesma coisa se aplica a...","Descobrindo quem sou"];
+var match=[["takes up most of my life",1],["discovering myself",3],["a constant motivation of mine",0],["the same thing applies to",2]];
+var mb=document.getElementById("m"),sels=[];
+match.forEach(function(x){var r=el("div","row");r.appendChild(el("div","q",x[0]));var s=el("select");s.appendChild(new Option("Choose…",""));meanings.forEach(function(m,i){s.appendChild(new Option((i+1)+". "+m,i))});r.appendChild(s);sels.push(s);mb.appendChild(r)});
+document.getElementById("mc").onclick=function(){var n=0;sels.forEach(function(s,i){var ok=s.value!==""&&+s.value===match[i][1];if(ok)n++;s.style.borderColor=ok?"var(--ok)":"var(--bad)"});var o=document.getElementById("mr");o.textContent=n+" / 4 "+(n==4?"🎉":"— try again!");o.className="res "+(n==4?"ok-t":"bad-t")};
+
+var ch=[["What takes up most of your time?",["Work","Family and relationships","Hobbies and personal interests","Something else"]],["What’s a constant motivation of yours?",["Growing professionally","Learning new things","Building meaningful relationships","Becoming more independent"]],["Do you find it easy to balance work and personal life?",["Yes, I manage to find a good balance.","Sometimes, but it’s not always easy.","No, work takes up too much of my time."]]];
+var cb=document.getElementById("c");
+ch.forEach(function(x,i){var r=el("div","row");r.appendChild(el("div","q",(i+1)+". "+x[0]));var w=el("div","opts");x[1].forEach(function(o){var b=el("button","opt",o);b.setAttribute("aria-pressed","false");b.onclick=function(){w.querySelectorAll(".opt").forEach(function(y){y.setAttribute("aria-pressed","false")});b.setAttribute("aria-pressed","true")};w.appendChild(b)});r.appendChild(w);var t=el("textarea");t.placeholder="Develop my answer… (because…)";r.appendChild(t);cb.appendChild(r)});
+
+var fq=[["I need to ___ what I want to do after university.","figure out","take up","figure out"],["We need to ___ a way to solve this problem.","work out","come to an end","work out"],["I’m still trying to ___ why the team made that decision.","figure out","take up","figure out"],["His professional career will ___ one day.","come to an end","work out","come to an end"]];
+var fb=document.getElementById("f"),picks=[];
+fq.forEach(function(x,i){var r=el("div","row");var q=el("div","q");q.appendChild(document.createTextNode((i+1)+". "+x[0].split("___")[0]));q.appendChild(el("span","blank"));q.appendChild(document.createTextNode(x[0].split("___")[1]));r.appendChild(q);var w=el("div","opts");[x[1],x[2]].forEach(function(o){var b=el("button","opt",o);b.setAttribute("aria-pressed","false");b.onclick=function(){picks[i]=o;w.querySelectorAll(".opt").forEach(function(y){y.setAttribute("aria-pressed","false");y.classList.remove("ok","bad")});b.setAttribute("aria-pressed","true")};w.appendChild(b)});r.appendChild(w);fb.appendChild(r)});
+document.getElementById("fc").onclick=function(){var n=0;fb.querySelectorAll(".row").forEach(function(r,i){r.querySelectorAll(".opt").forEach(function(b){b.classList.remove("ok","bad");if(b.getAttribute("aria-pressed")==="true"){var ok=b.textContent===fq[i][3];b.classList.add(ok?"ok":"bad");if(ok)n++}})});var o=document.getElementById("fr");o.textContent=n+" / 4 "+(n==4?"🎉":"— try again!");o.className="res "+(n==4?"ok-t":"bad-t")};
+
+var pb=document.getElementById("p");
+["One of the biggest lessons Alex has learned is…","His constant motivation is…","One thing that takes up most of his time is…","He’s still trying to figure out…"].forEach(function(s){var r=el("div","row");r.appendChild(el("div","q",s));r.appendChild(el("textarea"));pb.appendChild(r)});
+
+var rv=[["Evoluí muito como pessoa.","I’ve grown a lot as a person."],["Em termos da minha experiência...","In terms of my experience…"],["Isso ocupa a maior parte da minha vida.","It takes up most of my life."],["Uma motivação constante minha.","A constant motivation of mine."],["A mesma coisa se aplica à minha vida pessoal.","The same thing applies to my personal life."],["Preciso descobrir o que vou fazer depois.","I need to figure out what I’m going to do next."],["Minha carreira vai chegar ao fim um dia.","My career will come to an end one day."]];
+var rb=document.getElementById("r");
+rv.forEach(function(x,i){var r=el("div","row rv");r.appendChild(el("div","q",(i+1)+". "+x[0]));var b=el("button",null,"Reveal");var a=el("div","ans",x[1]);b.onclick=function(){a.classList.toggle("show");b.textContent=a.classList.contains("show")?"Hide":"Reveal"};r.appendChild(b);r.appendChild(a);rb.appendChild(r)});
+</script>
+</body>
+</html>
