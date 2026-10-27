@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chunks with Prepositions · Bloom in English</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f8ff;--card:#fff;--ink:#14213d;--blue:#2f6bff;--sky:#dbe8ff;--yel:#ffd23f;--ok:#1f9d55;--bad:#e5484d;--line:#c9d9f5;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1626;--card:#16233b;--ink:#eef3ff;--sky:#1f3359;--line:#2b4373}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Nunito,system-ui,sans-serif;line-height:1.5}
+h1,h2,h3,button,.chip{font-family:Fredoka,Nunito,sans-serif}
+header{background:var(--blue);color:#fff;text-align:center;padding:28px 16px 22px;border-radius:0 0 28px 28px}
+header h1{margin:0;font-size:clamp(1.6rem,6vw,2.4rem)}
+header p{margin:6px 0 0;opacity:.95}
+.brand{display:inline-block;background:var(--yel);color:#14213d;border-radius:99px;padding:2px 14px;font-weight:600;font-size:.85rem;margin-bottom:8px}
+main{max-width:860px;margin:0 auto;padding:16px}
+section{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:18px;margin:18px 0}
+h2{margin:0 0 4px;font-size:1.35rem}
+.how{margin:0 0 14px;opacity:.8;font-size:.95rem}
+button{cursor:pointer;border:0;border-radius:14px;background:var(--blue);color:#fff;padding:9px 16px;font-size:1rem}
+button.alt{background:var(--yel);color:#14213d}
+button:disabled{opacity:.5}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.flip{perspective:700px;height:150px;cursor:pointer}
+.flip div{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flip.on div{transform:rotateY(180deg)}
+.flip span{position:absolute;inset:0;backface-visibility:hidden;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:10px}
+.flip .f{background:var(--sky);border:2px solid var(--blue)}
+.flip .f b{font-size:1.25rem;font-family:Fredoka}
+.flip .b{background:var(--yel);color:#14213d;transform:rotateY(180deg)}
+.comic{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.panel{border:3px solid var(--ink);border-radius:16px;overflow:hidden;background:var(--card)}
+.scene{background:var(--sky);font-size:3rem;text-align:center;padding:12px 0}
+.bubble{padding:10px 12px;font-size:1rem}
+.bubble small{display:block;opacity:.7}
+input.bl{width:7.5em;border:0;border-bottom:3px solid var(--blue);background:transparent;color:inherit;font:inherit;font-weight:700;text-align:center;padding:0 2px}
+input.bl:focus{outline:none;background:var(--sky)}
+input.tx{width:100%;border:2px solid var(--line);border-radius:12px;padding:8px 10px;font:inherit;background:var(--bg);color:inherit}
+.ok{border-color:var(--ok)!important;background:rgba(31,157,85,.15)!important}
+.no{border-color:var(--bad)!important;background:rgba(229,72,77,.15)!important}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:12px}
+.score{font-family:Fredoka;font-weight:600}
+.q{border-top:2px dashed var(--line);padding:10px 0}
+.opts{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.opts button{background:var(--sky);color:inherit;border:2px solid var(--line)}
+.opts button.ok{background:var(--ok)!important;color:#fff;border-color:var(--ok)!important}
+.opts button.no{background:var(--bad)!important;color:#fff;border-color:var(--bad)!important}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cols button{display:block;width:100%;margin-bottom:8px;background:var(--sky);color:inherit;border:2px solid var(--line);text-align:left}
+.cols button.sel{border-color:var(--blue);background:var(--yel);color:#14213d}
+.cols button.done{visibility:hidden}
+.chip{display:inline-block;background:var(--sky);border:2px solid var(--blue);border-radius:99px;padding:4px 12px;margin:3px;cursor:pointer;color:inherit}
+.built{min-height:46px;border:2px dashed var(--blue);border-radius:14px;padding:4px;margin:6px 0}
+.speak{background:var(--blue);color:#fff;border-radius:20px;padding:22px;text-align:center;font-family:Fredoka;font-size:1.3rem;min-height:110px;display:flex;align-items:center;justify-content:center}
+.msg{margin-top:8px;font-weight:700}
+.hid .panel .bubble,.hid .panel .scene{filter:blur(10px)}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:12px 16px;max-width:860px;margin:0 auto}.tabs button{background:var(--sky);color:inherit;border:2px solid var(--line);white-space:nowrap;padding:6px 12px}.tabs button.on{background:var(--yel);color:#14213d;border-color:var(--yel)}.pg{display:none}.pg.on{display:block}.deck{height:230px}.deck .flip{height:100%}.deck .flip span{font-size:1.3rem}.one .panel{display:none}.one .panel.cur{display:block}.one .scene{font-size:5rem}.one .bubble{font-size:1.15rem;padding:16px}.pgnav{display:flex;justify-content:space-between;margin-top:18px;border-top:2px dashed var(--line);padding-top:12px}
+footer{text-align:center;padding:20px;opacity:.7;font-size:.9rem}
+</style></head><body>
+<header><span class="brand">Bloom in English</span><h1>Chunks with Prepositions</h1><p>good at · interested in · afraid of · depend on · married to</p></header>
+<main>
+
+<section><h2>1 · Learn the chunks</h2><p class="how">Read the Portuguese sentence and translate it into English out loud. Then tap the card to check!</p><div class="deck" id="flips"></div><div class="row"><button class="alt" onclick="fp(-1)">← Back</button><button onclick="fp(1)">Next card →</button><button class="alt" onclick="fs()">🔀 Shuffle</button><span class="score" id="fc"></span></div></section>
+
+<section><h2>2 · Read the comic</h2><p class="how">Read Lia’s Saturday one card at a time and fill in the blanks with the right chunk.</p>
+<div class="comic one" id="comic">
+<div class="panel"><div class="scene">👩‍🍳🍝</div><div class="bubble">Lia loves cooking! She’s <input class="bl" data-a="good at"> cooking, so she cooks for her friends every Saturday.</div></div>
+<div class="panel"><div class="scene">🤔❓</div><div class="bubble">“Hi! Sorry… what’s your name again?”<small>Lia is <input class="bl" data-a="bad at"> remembering names. 😅</small></div></div>
+<div class="panel"><div class="scene">🌧️🍽️</div><div class="bubble">“Can we eat outside?” “It <input class="bl" data-a="depends on"> the weather!”</div></div>
+<div class="panel"><div class="scene">🕷️😱</div><div class="bubble">“A spider!!” Lia is really <input class="bl" data-a="afraid of"> spiders.</div></div>
+<div class="panel"><div class="scene">👨‍🍳💍</div><div class="bubble">Her husband Leo saves the day! Lia is <input class="bl" data-a="married to"> Leo.</div></div>
+<div class="panel"><div class="scene">🎾📚</div><div class="bubble">After dinner, they talk about hobbies. Leo is <input class="bl" data-a="interested in"> tennis. Lia is <input class="bl" data-a="interested in"> learning English!</div></div>
+</div>
+<div class="row"><button class="alt" onclick="cp(-1)">← Previous</button><button onclick="cp(1)">Next card →</button><span class="score" id="cc"></span></div><div class="row"><button onclick="chk('#comic')">Check all ✔</button><span class="score" id="s-comic"></span></div></section>
+
+<section><h2>3 · Story memory challenge</h2><p class="how">Answer from memory! Choose the correct preposition. (You can peek at the comic again if you need to.)</p>
+<div class="row"><button class="alt" onclick="go(1)">👀 Peek at the comic</button></div>
+<div id="facts"></div><div class="row"><button onclick="chk('#facts')">Check ✔</button><span class="score" id="s-facts"></span></div></section>
+
+<section><h2>4 · Pick the right one</h2><p class="how">Choose the correct word. You get the answer right away.</p><div id="mc"></div><div class="score" id="s-mc"></div></section>
+
+<section><h2>5 · Match the pairs</h2><p class="how">Tap an English chunk, then its Portuguese meaning.</p><div class="cols" id="match"></div><div class="msg" id="s-match"></div></section>
+
+<section><h2>6 · Translate it!</h2><p class="how">Write the sentence in English. Don’t forget the preposition!</p><div id="tr"></div><div class="row"><button onclick="chkTr()">Check ✔</button><span class="score" id="s-tr"></span></div></section>
+
+<section><h2>7 · Build the sentence</h2><p class="how">Tap the words in the right order.</p><div id="un"></div></section>
+
+<section><h2>8 · Speaking time 🎤</h2><p class="how">Answer with a full sentence using the chunk. Then ask your teacher the same question!</p>
+<div class="speak" id="sp">Tap “Next card” to start</div><div class="row"><button onclick="nextSp()">Next card 🎲</button></div></section>
+</main>
+<footer>Bloom in English 🌱 · keep practicing a little every day!</footer>
+
+<script>
+const $=s=>document.querySelector(s);
+const norm=t=>t.toLowerCase().replace(/[’‘]/g,"'").replace(/[.!?,]/g,"").replace(/\s+/g," ").trim();
+const shuf=a=>[...a].sort(()=>Math.random()-.5);
+const CH=[
+["good at","I’m good at English.","Sou bom/boa em inglês."],["good at","She’s good at cooking.","Ela é boa em cozinhar."],
+["bad at","I’m bad at remembering names.","Sou ruim em lembrar nomes."],
+["interested in","I’m interested in volleyball.","Tenho interesse em vôlei."],["interested in","She’s interested in psychology.","Ela tem interesse em psicologia."],["interested in","I’m interested in learning English.","Tenho interesse em aprender inglês."],
+["afraid of","I’m afraid of spiders.","Tenho medo de aranhas."],["afraid of","He’s afraid of flying.","Ele tem medo de voar."],
+["depend on","It depends on the weather.","Depende do clima."],["depend on","I depend on my family.","Dependo da minha família."],
+["married to","She’s married to John.","Ela é casada com John."],["married to","I’m married to my best friend.","Sou casado(a) com meu melhor amigo/minha melhor amiga."]];
+let D=[...CH],di=0;
+function fr(){const c=D[di];$('#flips').innerHTML=`<div class="flip" onclick="this.classList.toggle('on')"><div><span class="f"><small>🇧🇷 Translate to English</small><b>${c[2]}</b></span><span class="b"><small>${c[0]}</small><b>${c[1]}</b></span></div></div>`;$('#fc').textContent=`${di+1}/${D.length}`}
+function fp(n){di=(di+n+D.length)%D.length;fr()}
+function fs(){D=shuf(CH);di=0;fr()}
+fr();
+
+function chk(root){let ok=0,all=0;document.querySelectorAll(root+' [data-a]').forEach(e=>{all++;const v=norm(e.value||'');const good=e.dataset.a.split('|').some(a=>norm(a)===v);e.classList.toggle('ok',good);e.classList.toggle('no',!good);if(good)ok++});
+ $('#s-'+root.slice(1)).textContent=`${ok}/${all} ${ok==all?'🎉 Perfect!':'— fix the red ones'}`}
+
+const F=[["Lia is good ___ cooking.","at"],["She’s bad ___ remembering names.","at"],["“Can we eat outside?” “It depends ___ the weather.”","on"],["Lia is afraid ___ spiders.","of"],["Lia is married ___ Leo.","to"],["Leo is interested ___ tennis.","in"]];
+$('#facts').innerHTML=F.map(f=>`<div class="q">${f[0].replace('___',`<select data-a="${f[1]}" class="bl" style="width:auto"><option value="">…</option>${['at','of','on','in','to'].map(o=>`<option>${o}</option>`).join('')}</select>`)}</div>`).join('');
+
+const M=[["I’m afraid ___ flying.",["at","of","to"],"of"],["She’s married ___ a doctor.",["to","with","in"],"to"],["He’s really good ___ drawing.",["in","at","on"],"at"],["I’m interested ___ music.",["in","on","at"],"in"],["It depends ___ the price.",["of","to","on"],"on"],["I’m bad ___ math.",["at","of","in"],"at"],["They’re afraid ___ the dark.",["of","from","to"],"of"],["Are you interested ___ this movie?",["on","in","about"],"in"]];
+let mcDone=0,mcOk=0;
+$('#mc').innerHTML=M.map((m,i)=>`<div class="q"><div>${i+1}. ${m[0]}</div><div class="opts">${m[1].map(o=>`<button onclick="pick(this,'${m[2]}')">${o}</button>`).join('')}</div></div>`).join('');
+function pick(b,ans){const p=b.parentNode;if(p.dataset.d)return;p.dataset.d=1;const good=b.textContent==ans;b.classList.add(good?'ok':'no');if(!good)[...p.children].find(x=>x.textContent==ans).classList.add('ok');mcDone++;if(good)mcOk++;$('#s-mc').textContent=`${mcOk}/${M.length}`+(mcDone==M.length?' 🎉 Done!':'')}
+
+const P=[["good at","bom/boa em"],["bad at","ruim em"],["interested in","interessado(a) em"],["afraid of","com medo de"],["depend on","depender de"],["married to","casado(a) com"]];
+let sel=null,mDone=0;
+$('#match').innerHTML='<div id="mL"></div><div id="mR"></div>';
+$('#mL').innerHTML=P.map((p,i)=>`<button data-i="${i}" data-s="L">${p[0]}</button>`).join('');
+$('#mR').innerHTML=shuf(P.map((p,i)=>i)).map(i=>`<button data-i="${i}" data-s="R">${P[i][1]}</button>`).join('');
+$('#match').onclick=e=>{const b=e.target.closest('button');if(!b)return;
+ if(!sel||sel.dataset.s==b.dataset.s){document.querySelectorAll('#match .sel').forEach(x=>x.classList.remove('sel'));sel=b;b.classList.add('sel');return}
+ if(sel.dataset.i==b.dataset.i){sel.classList.add('done');b.classList.add('done');mDone++;$('#s-match').textContent=mDone==P.length?'🎉 All matched!':`${mDone}/${P.length}`}
+ else{$('#s-match').textContent='Try again 🙂'}
+ sel.classList.remove('sel');sel=null};
+
+const T=[["Sou bom em inglês.",["I'm good at English"]],["Ela é boa em cozinhar.",["She's good at cooking"]],["Eu sou ruim em lembrar nomes.",["I'm bad at remembering names"]],["Tenho interesse em aprender inglês.",["I'm interested in learning English"]],["Ele tem medo de voar.",["He's afraid of flying"]],["Depende do clima.",["It depends on the weather"]],["Ela é casada com John.",["She's married to John"]]];
+$('#tr').innerHTML=T.map((t,i)=>`<div class="q">${t[0]}<input class="tx" id="t${i}" placeholder="Type in English…"></div>`).join('');
+function chkTr(){let ok=0;T.forEach((t,i)=>{const e=$('#t'+i);const v=norm(e.value);const g=t[1].some(a=>norm(a)===v);e.classList.toggle('ok',g);e.classList.toggle('no',!g);if(g)ok++});$('#s-tr').textContent=`${ok}/${T.length} ${ok==T.length?'🎉 Great job!':'— check the red ones'}`}
+
+const U=["I depend on my family.","He’s afraid of flying.","I’m married to my best friend.","She’s interested in psychology.","We’re bad at remembering names."];
+$('#un').innerHTML=U.map((u,i)=>`<div class="q"><div class="built" id="b${i}"></div><div id="p${i}"></div><div class="row"><button onclick="ckU(${i})">Check ✔</button><button class="alt" onclick="rsU(${i})">Reset</button><span class="msg" id="m${i}"></span></div></div>`).join('');
+function rsU(i){$('#b'+i).innerHTML='';$('#m'+i).textContent='';$('#p'+i).innerHTML=shuf(U[i].split(' ')).map(w=>`<span class="chip" onclick="mv(this,${i})">${w}</span>`).join('')}
+function mv(c,i){const inB=c.parentNode.id=='b'+i;(inB?$('#p'+i):$('#b'+i)).appendChild(c)}
+function ckU(i){const t=[...$('#b'+i).children].map(c=>c.textContent).join(' ');const g=norm(t)==norm(U[i]);$('#m'+i).textContent=g?'✅ Correct!':'❌ Not yet…';$('#m'+i).style.color=g?'var(--ok)':'var(--bad)'}
+U.forEach((u,i)=>rsU(i));
+
+const S=["What are you really good at? Tell me about it.","What are you bad at? Is it funny or frustrating?","What are you interested in these days? Why?","What are you afraid of? Tell a short story.","What do you depend on every day? (phone, coffee, family…)","Are you married to someone, or do you know a nice couple? Describe them.","Talk about a person who is good at something. What can they do?","Which things in your life depend on the weather?","Are you interested in learning something new? What and why?"];
+let si=-1;function nextSp(){si=(si+1)%S.length;$('#sp').textContent=S[si]}
+let ci=0;const PN=[...document.querySelectorAll('#comic .panel')];
+function cp(n){ci=Math.max(0,Math.min(PN.length-1,ci+n));PN.forEach((p,i)=>p.classList.toggle('cur',i==ci));$('#cc').textContent=`${ci+1}/${PN.length}`}
+const SC=[...document.querySelectorAll('main section')];
+const tb=document.createElement('nav');tb.className='tabs';
+SC.forEach((s,i)=>{s.classList.add('pg');const b=document.createElement('button');b.textContent=s.querySelector('h2').textContent;b.onclick=()=>go(i);tb.appendChild(b);
+ s.insertAdjacentHTML('beforeend',`<div class="pgnav"><button class="alt" ${i?'':'disabled'} onclick="go(${i-1})">← Previous exercise</button><button ${i<SC.length-1?'':'disabled'} onclick="go(${i+1})">Next exercise →</button></div>`)});
+document.querySelector('main').before(tb);
+function go(i){SC.forEach((s,j)=>s.classList.toggle('on',i==j));[...tb.children].forEach((b,j)=>b.classList.toggle('on',i==j));scrollTo(0,0)}
+go(0);cp(0);
+</script></body></html>
